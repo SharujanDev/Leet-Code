@@ -1,2 +1,2 @@
 # Leet-Code
-Leet code prblems solved by me
+This GitHub repository provides a diverse collection of solutions to LeetCode problems. It serves as a valuable resource for individuals seeking to enhance their problem-solving skills and prepare for coding interviews. With solutions available in various programming languages like Python, Java, C++, and JavaScript, users have the flexibility to choose their preferred language. Although the repository does not have a strict organization, it offers a wide range of problem solutions across different categories, including arrays, strings, linked lists, trees, and dynamic programming. 
