@@ -1,7 +1,6 @@
 #include <iostream>
 #include <unordered_map>
 #include <string>
-#include <unordered_set>
 #include <algorithm>
 using namespace std;
 
@@ -10,11 +9,25 @@ public:
     bool isAnagram(string s, string t) {
 
         //SORTING METHOD
+        /*
         if (s.size() != t.size()) return false;
 
         sort(s.begin(),s.end());
         sort(t.begin(),t.end());
         if (s == t) return true;
+        return false;
+        */
+
+       //HASHMAP METHOD
+        if (s.size() != t.size()) return false;//String must be the same size
+
+        unordered_map<char,int> hs={};
+        unordered_map<char,int> ht = {};
+
+        for (char x: s) hs[x]++;
+        for (char y: t) ht[y]++;
+
+        if (hs == ht) return true;
         return false;
     }
 };
@@ -31,7 +44,7 @@ int main() {
     
     // Running test cases
     cout << (validAnagram.isAnagram(s1, t1) ? "True" : "False") << endl;  // Output: True
-    //cout << (validAnagram.isAnagram(s2, t2) ? "True" : "False") << endl;  // Output: False
+    cout << (validAnagram.isAnagram(s2, t2) ? "True" : "False") << endl;  // Output: False
     
     return 0;
 }
