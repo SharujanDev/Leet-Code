@@ -20,9 +20,18 @@ vector<int> twoSum(vector<int>& nums, int target) {
         return {};
         */
 
-       //Hash Map
-       
-}
+       //TWO PASS HASH MAP
+        unordered_map<int,int> numHash = {}; 
+        
+        for (int i = 0; i < nums.size();i++) numHash.insert({nums[i],i});//Add Vector to HAshMap
+        for (int j = 0; j < nums.size();j++)
+        {
+            int diff = target - nums[j];
+            if (numHash.contains(diff) && j != numHash[diff]) return {j,numHash[diff]};
+        } 
+        return {};
+    }
+
 
 // Function to test the twoSum function with various test cases
 void testTwoSum() {
