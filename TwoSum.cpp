@@ -21,11 +21,23 @@ vector<int> twoSum(vector<int>& nums, int target) {
         */
 
        //TWO PASS HASH MAP
+       /*
         unordered_map<int,int> numHash = {}; 
         
         for (int i = 0; i < nums.size();i++) numHash.insert({nums[i],i});//Add Vector to HAshMap
         for (int j = 0; j < nums.size();j++)
         {
+            int diff = target - nums[j];
+            if (numHash.contains(diff) && j != numHash[diff]) return {j,numHash[diff]};
+        } 
+        return {};*/
+
+        //ONE PASS HASH MAP
+        unordered_map<int,int> numHash = {}; 
+        
+        for (int j = 0; j < nums.size();j++)
+        {
+            numHash.insert({nums[j],j});
             int diff = target - nums[j];
             if (numHash.contains(diff) && j != numHash[diff]) return {j,numHash[diff]};
         } 
