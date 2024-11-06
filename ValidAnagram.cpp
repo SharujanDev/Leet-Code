@@ -22,14 +22,21 @@ public:
         if (s.size() != t.size()) return false;//String must be the same size
 
         unordered_map<char,int> hs={};
-        unordered_map<char,int> ht = {};
 
         for (char x: s) hs[x]++;
-        for (char y: t) ht[y]++;
 
-        if (hs == ht) return true;
+        for (char c : t) {
+            if (hs.find(c) != hs.end()) {
+                hs[c]--;
+                // Remove the character from map if count becomes zero
+                if (hs[c] == 0) {
+                    hs.erase(c);
+                }
+            }
+        }
+        if (hs.empty()) return true;
         return false;
-    }
+    }     
 };
 
 int main() {
