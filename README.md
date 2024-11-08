@@ -1,0 +1,1 @@
+This GitHub repository provides a diverse collection of solutions to LeetCode problems. LeetCode problems serves as a valuable resource for individuals seeking to enhance their problem-solving skills and prepare for coding interviews. With solutions available in various programming languages like Java, Python and C++.
