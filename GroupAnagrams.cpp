@@ -6,23 +6,23 @@
 
 // Function signature for you to implement
 std::vector<std::vector<std::string>> groupAnagrams(std::vector<std::string>& strs) {
-    std::vector<std::string> group;
-    std::cout << "\n Method:";
-    for (std::string str: strs) 
+    std::vector<std::vector<std::string>> temp;
+    std::unordered_map<std::string, std::vector<std::string>> map;
+    std::string order;
+
+    for (int i = 0;i<strs.size();i++) 
     {
-        sort(str.begin(),str.end());
-        temp.push_back(str);
+        order = strs[i];
+        sort(order.begin(),order.end());
+        map[order].push_back(strs[i]);
     }
 
+    for (auto vec : map)
+    {
+        temp.push_back(vec.second);
+    }
 
-
-
-
-
-
-
-
-    return {};  
+    return temp;  
 }
 
 // Helper function to check if two 2D vectors of strings are the same
