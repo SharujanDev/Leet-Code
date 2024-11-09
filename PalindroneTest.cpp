@@ -6,6 +6,7 @@
 // Function signature for you to implement
 bool isPalindrome(int x) {
     //String Conversion Aproach
+    /*
     std::string StringX = std::to_string(x);
     int n = StringX.size();
     if ((x<0) || (x=0) || n<1) return false;
@@ -15,25 +16,41 @@ bool isPalindrome(int x) {
         if (StringX[i] != StringX[n-i-1]) return false;}
 
     return true; 
+    */
 
-    /*
-    std::cout << x << "/n";
-    if (x<=0 ) return false;
-    int temp=0;
-    int count = 1;
-    
+   //Checking All Digits IN Integer Form APPROACH
+   /*
+   if (x<0) return false;
 
-    while (true)
-    {
-        temp = (temp*10)+ (x%(10^count));
-        count++;
-        std::cout<< temp << std::endl; 
-        if (count == 10) return false;
-    }
+   int reverse = 0;
+   int temp = x;
 
-    std::cout << "/n"; 
+   while (temp !=0)
+   {
+        int val = temp%10;
+        reverse = (reverse*10)+val;
+        temp = temp/10;
+        //std::cout << reverse << "\n";
+   }
+
+    if (reverse == x) return true;
     return false;
     */
+   if (x<0 || (x != 0 && x % 10 == 0)) return false;
+
+   int reverse = 0;
+   int temp = x;
+
+   while (temp > reverse)
+   {
+        int val = temp%10;
+        reverse = (int)(reverse*10)+val;
+        temp = temp/10;
+        //std::cout << temp << " " << reverse << "\n"; 
+   }
+
+    return (temp==reverse) || (temp == reverse/10);
+
 }
 
 // Function to test the isPalindrome function
