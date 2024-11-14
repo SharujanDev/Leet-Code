@@ -7,18 +7,33 @@ using namespace std;
 
 class Solution {
 public:
-    // Encodes a list of strings to a single string.
+
     string encode(vector<string>& strs) 
     {
         string encodedString = "";
-
+        for (string str: strs) encodedString.append(str + "\n");
+        return encodedString;
     }
 
     // Decodes a single string to a list of strings.
     vector<string> decode(string s) {
-        
+        vector<string> decodedVal;
+        string word;
+        for (int i = 0;i<s.size();i++)
+        {
+
+        if (s[i] != '\n') {word.append(1, s[i]);  // Append the character to word
+        } 
+        else 
+        {
+            decodedVal.push_back(word);  // Add the word to decodedVal
+            word = "";  // Reset word
+        }
+        }
+        return decodedVal;
     }
 };
+
 
 // Function to test the encode and decode methods
 void test() {
