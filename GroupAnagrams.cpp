@@ -17,7 +17,7 @@ std::vector<std::vector<std::string>> groupAnagrams(std::vector<std::string>& st
         map[order].push_back(strs[i]);
     }
 
-    for (auto vec : map)
+    for (auto& vec : map)
     {
         temp.push_back(vec.second);
     }
