@@ -33,10 +33,20 @@ public:
         vector<int> left = nums;
         vector<int> right = nums;
 
-        for (int i = 0; i < nums.size();i++);
+        for (int i = 0; i < nums.size();i++)
         {
-
+            if (i > 0) left[i] = nums[i-1]*left[i-1];//FIND LEFT VALUE
+            int x = nums.size()-i-1;
+            if (i<nums.size()-1) right[x] = right[x+1] * nums[x+1];//FIND RIGHT VALUE
         }
+
+        for (int i = 0;i<nums.size();i++)
+        {
+            if (i==0) nums[i] = right[i+1];
+            else if (i == nums.size()-1) nums[i] = left[i-1];
+            else nums[i] = left[i-1] * right[i+1];
+        }
+        return nums;
     }
 };
 
