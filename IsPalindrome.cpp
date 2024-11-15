@@ -1,11 +1,14 @@
 #include <iostream>
 #include <string>
 #include <cctype>
+#include <algorithm>
 
 class Solution {
 public:
     bool isPalindrome(std::string s) 
+
     //Pointer Aproach
+    /*
     {
         int left = 0;
         std::string result = "";
@@ -14,6 +17,28 @@ public:
         while (left < right)
         {
             if (result[left] != result[right]) return false;
+            left++;right--;
+        }
+        return true;
+    }
+    */
+   //Improved Memory Aproach + Bad Timing
+    {
+        int left = 0;
+        
+        //for (char ch : s)if (std::isalnum(ch)) result += std::tolower(ch);
+        for (int i = 0;i < s.size();i++)
+        {
+            if (!std::isalnum(s[i])){ s.erase(i,1); i--;} 
+        }
+
+        std::transform(s.begin(), s.end(), s.begin(),tolower);
+        
+
+        int right = s.size() - 1;
+        while (left < right)
+        {
+            if (s[left] != s[right]) return false;
             left++;right--;
         }
         return true;
