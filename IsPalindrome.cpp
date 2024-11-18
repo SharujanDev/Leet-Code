@@ -23,6 +23,7 @@ public:
     }
     */
    //Improved Memory Aproach + Bad Timing
+   /*
     {
         int left = 0;
         
@@ -34,7 +35,6 @@ public:
 
         std::transform(s.begin(), s.end(), s.begin(),tolower);
         
-
         int right = s.size() - 1;
         while (left < right)
         {
@@ -43,6 +43,19 @@ public:
         }
         return true;
     }
+    */
+
+   //One Loop 
+   {
+        int left = 0; int right = s.size()-1;
+
+        while (left < right)
+        {
+            int left = 0;
+            
+        }
+
+   }
 };
 
 
